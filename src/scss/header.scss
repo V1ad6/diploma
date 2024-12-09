@@ -76,6 +76,12 @@ header {
   }
 }
 
+.cart-icon {
+  width: 27px;
+  height: 27px;
+  margin: 0 20px;
+}
+
 @media (min-width: 767px) {
   header nav {
     display: flex;

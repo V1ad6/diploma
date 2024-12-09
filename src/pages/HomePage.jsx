@@ -3,52 +3,17 @@ import '../scss/menu.scss';
 import '../scss/top.scss';
 import '../scss/introduction.scss';
 import '../scss/examples.scss';
-import { Link } from 'react-router-dom';
+import Menu from '../components/Menu';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function HomePage() {
   const [menuState, setMenuState] = useState("");
 
   return (
     <div>
-      <menu className={menuState}>
-        <h2>Навігація по сайту</h2>
-
-        <ul>
-          <li><a href="#top-sales">Хіти продажу</a></li>
-          <li><a href="#images">Зображення</a></li>
-          <li><a href="https://gymbeam.ua/">Наш магазин</a></li>
-          <li><Link to="/contact">Пишіть нам</Link></li>
-        </ul>
-
-        <button className="close-btn" onClick={() => setMenuState("")}>
-          <span></span>
-          <span></span>
-        </button>
-      </menu>
-
-      <header>
-        <div className="container">
-          <img src={require("../assets/logo.png")} alt="logo" className="logo"></img>
-
-          <nav>
-            <ul>
-              <li><a href="#top-sales">Хіти продажу</a></li>
-              <li><a href="#images">Зображення</a></li>
-              <li><a href="https://gymbeam.ua/">Наш магазин</a></li>
-              <li><Link to="/contact">Пишіть нам</Link></li>
-            </ul>
-          </nav>
-
-          <div className="header__right">
-            <img src={require("../assets/user.png")} alt="user" className="user"></img>
-            <button className="open-menu" onClick={() => setMenuState("opened")}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
-        </div>
-      </header>
+      <Menu state={menuState} setState={setMenuState}></Menu>
+      <Header setMenuState={setMenuState}/>
 
       <section className="introduction">
         <div className="container">
@@ -188,31 +153,7 @@ function HomePage() {
         </div>
       </section>
 
-      <footer>
-        <div className="container">
-          <img src={require("../assets/logo.png")} alt="logo" className="logo"></img>
-
-          <nav>
-            <div>
-              <h4>Навігація</h4>
-              <ul>
-                <li><a href="#start">Початок</a></li>
-                <li><a href="#top-sales">Хіти продажу</a></li>
-                <li><a href="#images">Зображення</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4>Посилання</h4>
-              <ul>
-                <li><a href="https://gymbeam.ua/">Наш магазин</a></li>
-                <li><a href="./feedback.html">Пишіть нам</a></li>
-                <li><a href="https://gymbeam.ua/ua/checkout/cart/">Корзина</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }
