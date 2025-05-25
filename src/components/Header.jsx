@@ -33,12 +33,20 @@ function Header({ setMenuState }) {
               <li><Link to="/contact">Пишіть нам</Link></li>
             </>
             }
+
+            {
+            location.pathname === '/cart' && <>
+              <li><Link to="/">Головна</Link></li>
+              <li><Link to="/shop">Наш магазин</Link></li>
+              <li><Link to="/contact">Пишіть нам</Link></li>
+            </>
+            }
           </ul>
         </nav>
 
         <div class="header__right">
           {
-          location.pathname === '/shop' && <a><img className="cart-icon" src={require("../assets/cart.png")}></img></a>
+          location.pathname === '/shop' && <Link to="/cart"><img className="cart-icon" src={require("../assets/cart.png")}></img></Link>
           }
 
           <img src={require("../assets/user.png")} alt="user" class="user"></img>

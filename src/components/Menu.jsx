@@ -31,6 +31,14 @@ function Menu({ state, setState }) {
           <li><Link to="/contact">Пишіть нам</Link></li>
         </>
         }
+
+        {
+        location.pathname === '/cart' && <>
+          <li><Link to="/">Головна</Link></li>
+          <li><Link to="/shop">Наш магазин</Link></li>
+          <li><Link to="/contact">Пишіть нам</Link></li>
+        </>
+        }
       </ul>
 
       <button className="close-btn" onClick={() => setState("")}>

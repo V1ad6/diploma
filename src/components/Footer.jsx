@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -19,9 +20,9 @@ function Footer() {
           <div>
             <h4>Посилання</h4>
             <ul>
-              <li><a href="https://gymbeam.ua/">Наш магазин</a></li>
-              <li><a href="./feedback.html">Пишіть нам</a></li>
-              <li><a href="https://gymbeam.ua/ua/checkout/cart/">Корзина</a></li>
+              <li><Link to="/shop">Наш магазин</Link></li>
+              <li><Link to="/contact">Пишіть нам</Link></li>
+              <li><Link to="/cart">Корзина</Link></li>
             </ul>
           </div>
         </nav>

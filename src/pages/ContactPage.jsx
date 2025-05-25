@@ -12,7 +12,7 @@ function ContactPage() {
         Повідомлення надіслано успішно!
       </div>
 
-      <Menu state={menuState} setState={setMenuState}></Menu>
+      <Menu state={menuState} setState={setMenuState}/>
       <Header setMenuState={setMenuState}/>
 
       <div class="wrapper">

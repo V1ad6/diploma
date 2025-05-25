@@ -6,6 +6,7 @@ import '../scss/examples.scss';
 import Menu from '../components/Menu';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
   const [menuState, setMenuState] = useState("");
@@ -103,9 +104,9 @@ function HomePage() {
             </div>
           </div>
 
-          <a href="https://gymbeam.ua/" className="top__link">
+          <Link to="/shop" className="top__link">
             <button>Більше товарів</button>
-          </a>
+          </Link>
         </div>
 
         <div className="img-form"></div>
