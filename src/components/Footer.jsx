@@ -12,8 +12,8 @@ function Footer() {
             <h4>Навігація</h4>
             <ul>
               <li><a href="#start">Початок</a></li>
-              <li><a href="#top-sales">Хіти продажу</a></li>
-              <li><a href="#images">Зображення</a></li>
+              <li><a href="/#top-sales">Хіти продажу</a></li>
+              <li><a href="/#images">Зображення</a></li>
             </ul>
           </div>
 

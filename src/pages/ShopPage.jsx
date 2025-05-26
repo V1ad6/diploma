@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Header from '../components/Header';
 import '../scss/shop.scss';
 import Product from '../components/Product';
 import Footer from '../components/Footer';
 import Menu from '../components/Menu';
 import Filters from '../components/Filters';
+import { GlobalContext } from '../App';
 import axios from 'axios';
 
 function ShopPage() {
   const [menuState, setMenuState] = useState("");
-  const [items, setItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [sortMethod, setSortMethod] = useState("");
   const [search, setSearch] = useState("");
   const [prices, setPrices] = useState([]);
   const [types, setTypes] = useState([]);
+  const { items, setItems } = useContext(GlobalContext);
 
   useEffect(() => {
     axios.get("http://localhost:3001/getProducts")
@@ -53,7 +54,7 @@ function ShopPage() {
       <Menu state={menuState} setState={setMenuState}/>
       <Header setMenuState={setMenuState}/>
 
-      <section className="hat">
+      <section className="hat" id="start">
         <div className="hat__overlay"></div>
         <h1>Sport For Everybody</h1>
         <h3>Спортивний інвентар</h3>
@@ -108,7 +109,8 @@ function ShopPage() {
             <div className="products__list">
               {filteredItems.map(item => 
                 <Product 
-                  key={item.id} 
+                  key={item._id} 
+                  id={item._id}
                   url={item.url} 
                   title={item.title} 
                   rating={item.rating}

@@ -46,7 +46,11 @@ function Header({ setMenuState }) {
 
         <div class="header__right">
           {
-          location.pathname === '/shop' && <Link to="/cart"><img className="cart-icon" src={require("../assets/cart.png")}></img></Link>
+          location.pathname === '/shop' 
+            && 
+          <Link to='/cart'>
+            <img className="cart-icon" src={require("../assets/cart.png")}></img>
+          </Link>
           }
 
           <img src={require("../assets/user.png")} alt="user" class="user"></img>

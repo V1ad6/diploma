@@ -50,9 +50,6 @@ button {
 
 
 
-
-
-
 * {
   font-family: 'JetBrains Mono', monospace;
 }
@@ -71,15 +68,12 @@ html, body {
   padding: 0;
 }
 
-body {
-  /* position: relative;
-  display: flex;
-  flex-direction: column; */
+#root {
+  flex-grow: 1;
 }
 
-#root {
-  /* min-height: 100vh; */
-  flex-grow: 1;
+.App {
+  height: 100%;
 }
 
 .container {

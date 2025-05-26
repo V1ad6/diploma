@@ -193,6 +193,10 @@
   }
 }
 
+.product__add:disabled {
+  opacity: 0.5;
+}
+
 @media (min-width: 567px) {
   .hat {
     background-size: 110%;

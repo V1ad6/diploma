@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Filters({ prices, setPrices, types, setTypes }) {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/getCategories")
+        .then(categories => setCategories(categories.data));
+  }, []);
+
   return (
     <div className="products__filters">
       <h2>Фільтри</h2>
@@ -33,17 +41,10 @@ function Filters({ prices, setPrices, types, setTypes }) {
         }}
       >
         <h3>Тип</h3>
-        <label><input type="checkbox" value="Взуття"/>Взуття</label>
-        <label><input type="checkbox" value="Спорт.одяг"/>Спорт.одяг</label>
-        <label><input type="checkbox" value="Гантелі"/>Гантелі</label>
-        <label><input type="checkbox" value="Штанги"/>Штанги</label>
-        <label><input type="checkbox" value="Лави для жиму"/>Лави для жиму</label>
-        <label><input type="checkbox" value="Бігові доріжки"/>Бігові доріжки</label>
-        <label><input type="checkbox" value="Орбітреки"/>Орбітреки</label>
-        <label><input type="checkbox" value="Турніки"/>Турніки</label>
-        <label><input type="checkbox" value="Еспандери"/>Еспандери</label>
-        <label><input type="checkbox" value="Килимки"/>Килимки</label>
-        <label><input type="checkbox" value="М'ячі для фітнесу"/>М'ячі для фітнесу</label>
+
+        {categories.map(category => 
+          <label><input type="checkbox" value={category.name}/>{category.name}</label>
+        )}
       </form>
     </div>
   );

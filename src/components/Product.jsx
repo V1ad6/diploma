@@ -1,6 +1,13 @@
-import React from 'react';
+import { useContext } from 'react';
+import { GlobalContext } from '../App';
 
-function Product({ url, title, rating, price }) {
+function Product({ id, url, title, rating, price }) {
+  const { cart, setCart } = useContext(GlobalContext);
+
+  function addToCart(id) {
+    setCart(prev => [...prev, [id, 1]]);
+  }
+
   return (
     <div className="product">
       <div className="product__image">
@@ -12,7 +19,7 @@ function Product({ url, title, rating, price }) {
       </div>
       <div className="product__purchase">
         <h2 className="product__price">{price}₴</h2>
-        <button className="product__add">
+        <button className="product__add" onClick={() => addToCart(id)} disabled={cart.some(item => item[0] === id)}>
           <img src={require("../assets/cart2.jpeg")} alt=""/>
         </button>
       </div>
