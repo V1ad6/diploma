@@ -19,6 +19,8 @@ function Cart() {
       return;
     }
 
+    if (items.length === 0) return;
+
     setSum(cart.reduce((acc, curr) => {
       const currItemPrice = items.find(item => item._id === curr[0]).price;
       return acc + currItemPrice * curr[1];
@@ -32,6 +34,7 @@ function Cart() {
       totalPrice: sum
     })
     
+    localStorage.setItem('cart', '[]');
     setCart([]);
   }
 
@@ -41,11 +44,16 @@ function Cart() {
       <Header setMenuState={setMenuState}/>
 
       <main className="cart">
+        {
+        cart.length === 0 || items.length === 0
+          ?
+        <h1 className="empty-cat-title">Жодного товару не було додано до корзини!</h1>
+          :
         <div className="container">
           <strong>Сума {sum}грн</strong>
           {cart.map(cartItem => {
             const product = items.find(item => item._id === cartItem[0]);
-
+            
             return (
               <CartProduct 
                 key={product._id} 
@@ -59,6 +67,7 @@ function Cart() {
           })}
           <button className='cart__pay-btn' onClick={makeOrder}>Сплатити товари</button>
         </div>
+        }
       </main>
 
       <Footer/>

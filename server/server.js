@@ -42,6 +42,16 @@ app.post('/sendFeedback', (req, res) => {
   report.save();
 });
 
+app.post('/addUser', (req, res) => {
+  const user = new userModel({
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password
+  });
+
+  user.save();
+});
+
 app.listen(3001, () => {
   console.log("server is running!");
 });

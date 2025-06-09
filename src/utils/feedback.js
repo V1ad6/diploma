@@ -11,7 +11,7 @@ function validateForm(e) {
 
   let errorText = "";
 
-  if (name.length < 3) {
+  if (name.length <= 3) {
     errorText += "Name should be longer than 3 characters \n";
   } 
 

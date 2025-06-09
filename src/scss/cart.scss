@@ -107,6 +107,11 @@
   }
 }
 
+.empty-cat-title {
+  padding: 10px;
+  text-align: center;
+}
+
 @media (max-width: 1024px) {
   .cart-product {
     &__name {

@@ -35,7 +35,8 @@ function Header({ setMenuState }) {
             }
 
             {
-            location.pathname === '/cart' && <>
+            (location.pathname === '/cart' || 
+            location.pathname === '/auth') && <>
               <li><Link to="/">Головна</Link></li>
               <li><Link to="/shop">Наш магазин</Link></li>
               <li><Link to="/contact">Пишіть нам</Link></li>
@@ -53,7 +54,9 @@ function Header({ setMenuState }) {
           </Link>
           }
 
-          <img src={require("../assets/user.png")} alt="user" class="user"></img>
+          <Link to='/auth'>
+            <img src={require("../assets/user.png")} alt="user" class="user"></img>
+          </Link>
           <button class="open-menu" onClick={() => setMenuState("opened")}>
             <span></span>
             <span></span>

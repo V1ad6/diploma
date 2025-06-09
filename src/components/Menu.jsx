@@ -33,7 +33,8 @@ function Menu({ state, setState }) {
         }
 
         {
-        location.pathname === '/cart' && <>
+        (location.pathname === '/cart' || 
+        location.pathname === '/auth') && <>
           <li><Link to="/">Головна</Link></li>
           <li><Link to="/shop">Наш магазин</Link></li>
           <li><Link to="/contact">Пишіть нам</Link></li>

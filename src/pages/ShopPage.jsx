@@ -17,13 +17,17 @@ function ShopPage() {
   const [types, setTypes] = useState([]);
   const { items, setItems } = useContext(GlobalContext);
 
+  // useEffect(() => {
+  //   axios.get("http://localhost:3001/getProducts")
+  //     .then(prod => {
+  //       setItems(prod.data);
+  //       setFilteredItems(prod.data);
+  //     });
+  // }, []);
+
   useEffect(() => {
-    axios.get("http://localhost:3001/getProducts")
-      .then(prod => {
-        setItems(prod.data);
-        setFilteredItems(prod.data);
-      });
-  }, []);
+    setFilteredItems(items);
+  }, [items]);
 
   useEffect(() => {
     setFilteredItems(() => 
@@ -81,30 +85,6 @@ function ShopPage() {
                 <option value="name">За назвою</option>
               </select>
               <button>Фільтри</button>
-            </div>
-            <div className="products__filters products__filters_mobile">
-              <h2>Фільтри</h2>
-
-              <form action="">
-                <h3>Ціна</h3>
-                <input type="text" placeholder='Від'/>
-                <input type="text" placeholder='До'/>
-              </form>
-
-              <form action="">
-                <h3>Тип</h3>
-                <label><input type="checkbox"/>Взуття</label>
-                <label><input type="checkbox"/>Спорт.одяг</label>
-                <label><input type="checkbox"/>Гантелі</label>
-                <label><input type="checkbox"/>Штанги</label>
-                <label><input type="checkbox"/>Лави для жиму</label>
-                <label><input type="checkbox"/>Бігові доріжки</label>
-                <label><input type="checkbox"/>Орбітреки</label>
-                <label><input type="checkbox"/>Турніки</label>
-                <label><input type="checkbox"/>Еспандери</label>
-                <label><input type="checkbox"/>Килимки</label>
-                <label><input type="checkbox"/>М'ячі для фітнесу</label>
-              </form>
             </div>
             <div className="products__list">
               {filteredItems.map(item => 

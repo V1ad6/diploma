@@ -29,3 +29,10 @@ const ReportSchema = new mongoose.Schema({
   text: String
 });
 export const reportModel = mongoose.model('reports', ReportSchema, 'Reports');
+
+const UserSchema = new mongoose.Schema({
+  username: String,
+  email: String,
+  password: String
+});
+export const userModel = mongoose.model('users', UserSchema, 'Users');
